@@ -1,0 +1,43 @@
+@import "../../variables.scss";
+
+.container {
+    .main {
+        padding: 20px 50px;
+        h1 {
+            font-size: 28px;
+            border-bottom: 1px solid $orange;
+            padding-bottom: 5px;
+        }
+        .content {
+            margin-top: 10px;
+            h2 {
+                color: #999;
+            }
+            .empty {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                .emptyTitle {
+                    font-size: 18px;
+                    color: black;
+                    margin-bottom: 10px;
+                }
+                .emptyBtn {
+                    font-size: 14px;
+                    background-color: $orange;
+                    border-radius: 7px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 20px;
+                    transition: all 0.15s ease;
+                    &:hover {
+                        background-color: darken($orange, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

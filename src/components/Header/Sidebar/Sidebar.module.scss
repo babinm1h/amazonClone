@@ -1,0 +1,59 @@
+@import "../../../variables.scss";
+.layout {
+    background-color: rgba(black, 0.6);
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    .close {
+        position: absolute;
+        right: 0;
+        margin: 20px;
+    }
+    .container {
+        width: 80%;
+        background-color: #ebebeb;
+        height: 100vh;
+        .nav {
+            .header {
+                background-color: $darkBlue;
+                padding: 20px;
+                .auth {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    a {
+                        color: white;
+                    }
+                    span {
+                        margin-right: 5px;
+                    }
+                }
+                .title {
+                    font-size: 28px;
+                    color: #fff;
+                    p {
+                        &:first-child {
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .block {
+                padding: 20px;
+                background-color: #fff;
+                margin-bottom: 5px;
+                .blockTitle {
+                    font-size: 19px;
+                    font-weight: bold;
+                    a {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+.item {
+    display: flex;
+    margin-top: 15px;
+    .img {
+        width: 180px;
+        height: 150px;
+        object-fit: contain;
+    }
+    .itemInfo {
+        margin-left: 10px;
+        flex: 80%;
+        .itemTitle {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.2;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow-y: hidden;
+            cursor: pointer;
+            color: black;
+        }
+        .note {
+            color: $darkenOrange;
+            font-size: 12px;
+            margin: 10px 0;
+        }
+        .actions {
+            display: flex;
+            align-items: center;
+            .action {
+                font-size: 14px;
+                color: $blueLink;
+                margin-right: 20px;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+        .quan {
+            margin: 10px 0;
+        }
+    }
+    .itemPrice {
+        font-weight: bold;
+        font-size: 18px;
+        white-space: nowrap;
+        flex: 20%;
+        display: flex;
+        justify-content: flex-end;
+    }
+}

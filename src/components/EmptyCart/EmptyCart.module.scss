@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+.content {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    h1 {
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+    p {
+        font-size: 15px;
+        a {
+            color: $blueLink;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

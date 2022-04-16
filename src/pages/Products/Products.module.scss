@@ -1,0 +1,62 @@
+@import "../../variables.scss";
+.header {
+    border-bottom: 0.5px solid #ccc;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .titleFor {
+        font-weight: bold;
+        font-size: 20px;
+        span {
+            color: $darkenOrange;
+        }
+    }
+    .sort {
+        border: 1px solid #ccc;
+        padding: 3px 5px;
+        border-radius: 7px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.1s ease;
+        &:hover {
+            background-color: #e7e7e7;
+        }
+        select {
+            cursor: pointer;
+            background-color: transparent;
+            option {
+                width: 100%;
+            }
+        }
+        label {
+            cursor: pointer;
+        }
+    }
+}
+
+.section {
+    padding-top: 20px;
+    display: flex;
+    width: calc(100vw - 28px + 4px);
+    .filters {
+        display: flex;
+        flex-direction: column;
+        padding: 0 8px;
+        max-width: 250px;
+        min-width: 200px;
+        width: 100%;
+        .filtersHeader {
+            height: 30px;
+            border-bottom: 1px solid #e7e7e7;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        padding: 0 8px;
+    }
+}

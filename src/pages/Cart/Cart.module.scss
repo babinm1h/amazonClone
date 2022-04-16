@@ -1,0 +1,120 @@
+@import "../../variables.scss";
+.container {
+    background-color: #ebebeb;
+    height: 100vh;
+    width: 100%;
+    .content {
+        padding: 18px;
+        display: flex;
+        .column1 {
+            flex: 75%;
+            padding-right: 20px;
+            .cart {
+                background-color: #fff;
+                padding: 20px;
+                .header {
+                    .title {
+                        font-size: 28px;
+                        margin-bottom: 10px;
+                    }
+                    .subTitle {
+                        color: #999;
+                        border-bottom: 1px solid #ccc;
+                        padding-bottom: 4px;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    .removeAll {
+                        color: $blueLink;
+                        cursor: pointer;
+                        &:hover {
+                            text-decoration: underline;
+                            color: $darkenOrange;
+                        }
+                    }
+                }
+                .items {
+                    display: flex;
+                    flex-direction: column;
+                    .item {
+                        display: flex;
+                        margin-top: 15px;
+                        .img {
+                            width: 180px;
+                            height: 150px;
+                            object-fit: contain;
+                        }
+                        .itemInfo {
+                            margin-left: 10px;
+                            flex: 80%;
+                            .itemTitle {
+                                font-size: 18px;
+                                font-weight: 500;
+                                line-height: 1.2;
+                                line-clamp: 2;
+                                -webkit-line-clamp: 2;
+                                text-overflow: ellipsis;
+                                -webkit-box-orient: vertical;
+                                display: -webkit-box;
+                                overflow-y: hidden;
+                                cursor: pointer;
+                            }
+                            .note {
+                                color: $darkenOrange;
+                                font-size: 12px;
+                                margin: 10px 0;
+                            }
+                            .actions {
+                                display: flex;
+                                align-items: center;
+                                .action {
+                                    font-size: 14px;
+                                    color: $blueLink;
+                                    margin-right: 20px;
+                                    cursor: pointer;
+                                }
+                            }
+                            .quan {
+                                margin: 10px 0;
+                            }
+                        }
+                        .itemPrice {
+                            font-weight: bold;
+                            font-size: 18px;
+                            white-space: nowrap;
+                            flex: 20%;
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+
+        .column2 {
+            flex: 25%;
+            .totalBlock {
+                background-color: #fff;
+                flex: 25%;
+                padding: 20px;
+                .total {
+                    font-size: 18px;
+                    span {
+                        font-weight: bold;
+                    }
+                }
+                .button {
+                    margin-top: 10px;
+                    font-size: 14px;
+                    background-color: gold;
+                    width: 100%;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 7px;
+                }
+            }
+        }
+    }
+}

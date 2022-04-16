@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+.list {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    z-index: 2;
+    top: 50%;
+    padding: 0 20px;
+    width: 100%;
+    @media (max-width: 1024px) {
+        justify-content: flex-start;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        position: relative;
+    }
+}
+.banner {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 500px;
+    @media (max-width: 1024px) {
+        margin-top: 0;
+    }
+    .title {
+        font-size: 20px;
+    }
+    .button {
+        width: 100%;
+        background-color: gold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 45px;
+        border-radius: 7px;
+        transition: all 0.2s ease;
+        margin: 15px auto;
+        &:hover {
+            background-color: darken(gold, 10%);
+        }
+    }
+    span {
+        color: $blueLink;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.background {
+    background-color: #ebebeb;
+}

@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+.item {
+    img {
+        width: 150px;
+    }
+    .itemTitle {
+        color: $blueLink;
+        margin: 10px 0;
+        line-clamp: 3;
+        flex: 1 1 auto;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+        transition: all 0.1s ease;
+        cursor: pointer;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .itemPrice {
+        color: red;
+        font-size: 18px;
+    }
+}

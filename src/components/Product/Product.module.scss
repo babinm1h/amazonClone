@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+.item {
+    display: flex;
+    img {
+        width: 220px;
+        object-fit: contain;
+        cursor: pointer;
+    }
+    .itemInfo {
+        margin-left: 20px;
+        .itemTitle {
+            color: black;
+            flex: 1 1 auto;
+            font-size: 18px;
+            overflow-y: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.5;
+            transition: all 0.1s ease;
+            cursor: pointer;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            &:hover {
+                color: $darkenOrange;
+            }
+        }
+        .price {
+            font-size: 18px;
+        }
+        .rating {
+            margin: 15px 0;
+        }
+    }
+}

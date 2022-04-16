@@ -1,0 +1,197 @@
+@import "../../variables.scss";
+.header {
+    width: 100%;
+    .top {
+        background-color: $black;
+        padding: 2px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .left {
+            display: flex;
+            align-items: center;
+            .logo {
+                width: 120px;
+                padding: 0 9px;
+                @media (max-width: 480px) {
+                    width: 90px;
+                }
+            }
+            .location {
+                color: white;
+                display: inline-flex;
+                align-items: center;
+                padding: 0 9px;
+                p {
+                    margin-left: 5px;
+                }
+                @media (max-width: 600px) {
+                    display: none;
+                }
+            }
+            .burger {
+                margin: 0 5px;
+                display: none;
+                @media (max-width: 768px) {
+                    display: block;
+                }
+            }
+        }
+        .center {
+            padding: 0 8px;
+            display: flex;
+            align-items: center;
+            flex: 1 1 auto;
+            .inputContainer {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                .input {
+                    padding: 5px;
+                    height: 40px;
+                    width: 100%;
+                    border-radius: 5px 0 0 5px;
+                    &:focus {
+                        box-shadow: 0 0 3px $orange;
+                    }
+                }
+                .btn {
+                    background-color: $orange;
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 0px 5px 5px 0px;
+                }
+            }
+            @media (max-width: 825px) {
+                display: none;
+            }
+        }
+        .right {
+            .actionList {
+                display: flex;
+                align-items: center;
+                .actionItem {
+                    color: white;
+                    padding: 10px;
+                    margin: 0 3px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    a {
+                        color: white;
+                    }
+                    &:hover {
+                        .actionTitle {
+                            text-decoration: underline;
+                        }
+                    }
+                    .actionTitle {
+                        font-weight: bold;
+                        margin-top: 3px;
+                        font-size: 14px;
+                    }
+                    .cartBlock {
+                        display: flex;
+                        align-items: center;
+                        .cartCount {
+                            position: absolute;
+                            top: -18px;
+                            right: 0;
+                            font-size: 12px;
+                            transform: translate(50%, 50%);
+                            color: black;
+                            background-color: $orange;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 20px;
+                            width: 20px;
+                            border-radius: 50%;
+                        }
+                        .cartIcon {
+                            position: relative;
+                        }
+                    }
+                }
+                .account {
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+                .orders {
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+            .user {
+                a {
+                    display: flex;
+                    align-items: center;
+                }
+                span {
+                    color: #fff;
+                    margin-right: 5px;
+                    width: 100px;
+                    font-size: 13px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    @media (max-width: 420px) {
+                        width: 60px;
+                    }
+                }
+            }
+        }
+    }
+    .bottom {
+        background-color: $darkBlue;
+        .linkList {
+            display: flex;
+            align-items: center;
+            .linkItem {
+                padding: 10px;
+                color: white;
+                margin: 5px 0;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
+                }
+                .burger {
+                    display: flex;
+                    align-items: center;
+                    .burgerIcon {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .authBtn {
+        background-color: lighten($orange, 5%);
+        margin-bottom: 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $darkenOrange;
+        transition: all 0.15s ease;
+        height: 30px;
+        width: 100%;
+        border-radius: 3px;
+        &:hover {
+            background-color: $orange;
+        }
+        &:active {
+            border: none;
+        }
+    }
+    .hint {
+        font-size: 12px;
+        span {
+            color: $blueLink;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

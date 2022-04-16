@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+.reviews {
+    padding: 20px;
+    .label {
+        color: $darkenOrange;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .rate {
+        p {
+            margin-bottom: 10px;
+        }
+        .star {
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+    .form {
+        margin-top: 10px;
+        .btn {
+            background-color: $orange;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+            padding: 0 25px;
+            border-radius: 9999px;
+            &:hover {
+                background-color: darken($orange, 10%);
+            }
+            &:active {
+                background-color: darken($orange, 20%);
+            }
+        }
+        .textarea {
+            padding: 5px;
+            resize: none;
+            border: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+    }
+}
