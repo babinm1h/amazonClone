@@ -6,9 +6,11 @@ import s from "./Sidebar.module.scss"
 
 interface ISidebarProps {
     handleClose: () => void
+    isAuth: boolean
+    handleLogout: () => void
 }
 
-const Sidebar: FC<ISidebarProps> = ({ handleClose }) => {
+const Sidebar: FC<ISidebarProps> = ({ handleClose, isAuth, handleLogout }) => {
     return (
         <div className={s.layout}>
             <div className={s.close} onClick={handleClose}>
@@ -18,9 +20,14 @@ const Sidebar: FC<ISidebarProps> = ({ handleClose }) => {
                 <nav className={s.nav}>
                     <div className={s.header}>
                         <div className={s.auth}>
-                            <NavLink to={AllRoutes.auth}>
-                                <span>Sign in</span> <UserIcon color="white" size={22} />
-                            </NavLink>
+                            {isAuth
+                                ? <>
+                                    <span onClick={handleLogout}>Logout</span>
+                                    <UserIcon color="white" size={22} />
+                                </>
+                                : <NavLink to={AllRoutes.login}>
+                                    <span>Sign in</span> <UserIcon color="white" size={22} />
+                                </NavLink>}
                         </div>
                         <div className={s.title}>
                             <p>Browse</p>
@@ -36,7 +43,9 @@ const Sidebar: FC<ISidebarProps> = ({ handleClose }) => {
 
                     <div className={s.block}>
                         <div className={s.blockTitle}>
-                            <NavLink to={AllRoutes.orders}>Orders</NavLink>
+                            {isAuth
+                                ? <NavLink to={AllRoutes.orders}>Orders</NavLink>
+                                : <NavLink to={AllRoutes.login}>Orders</NavLink>}
                         </div>
                     </div>
                 </nav>

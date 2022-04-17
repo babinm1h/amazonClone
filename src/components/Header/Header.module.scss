@@ -113,6 +113,12 @@
                     }
                 }
                 .account {
+                    p {
+                        width: 100px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
                     @media (max-width: 768px) {
                         display: none;
                     }
@@ -124,6 +130,7 @@
                 }
             }
             .user {
+                display: none;
                 a {
                     display: flex;
                     align-items: center;
@@ -131,7 +138,7 @@
                 span {
                     color: #fff;
                     margin-right: 5px;
-                    width: 100px;
+                    max-width: 100px;
                     font-size: 13px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -139,6 +146,14 @@
                         width: 60px;
                     }
                 }
+                @media (max-width: 768px) {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .username {
+                margin-bottom: 10px;
+                font-size: 15px;
             }
         }
     }

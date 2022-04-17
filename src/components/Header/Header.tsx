@@ -6,10 +6,17 @@ import Popup from '../Popup/Popup';
 import { NavLink } from 'react-router-dom';
 import { AllRoutes } from '../AppRoutes/AppRoutes';
 import Sidebar from './Sidebar/Sidebar';
+import { useAppSelector } from '../../hooks/redux';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../store/thunks/auth';
 
 const Header = () => {
+    const dispatch = useDispatch()
+
     const [visible, setVisible] = useState<boolean>(false)
     const [sidebar, setSidebar] = useState<boolean>(false)
+
+    const { user, isAuth } = useAppSelector(state => state.auth)
 
     const handleShow = () => {
         setVisible(true)
@@ -24,6 +31,13 @@ const Header = () => {
     }
     const handleClose = () => {
         setSidebar(false)
+    }
+
+    const handleLogout = () => {
+        dispatch(logout())
+        if (sidebar) {
+            handleClose()
+        }
     }
 
 
@@ -52,29 +66,60 @@ const Header = () => {
                     </div>
                     <div className={s.right}>
                         <ul className={s.actionList}>
-                            <li className={s.actionItem + " " + s.account} onMouseLeave={handleHide}
+                            <li className={s.actionItem + " " + s.account}
+                                onMouseLeave={handleHide}
                                 onMouseEnter={handleShow}>
-                                <p>Hello, Sign In</p>
-                                <div className={s.actionTitle}>Account & Lists</div>
+
+                                {isAuth
+                                    ? <>
+                                        <p>Hello, {user?.email}</p>
+                                        <div className={s.actionTitle}>Account & Lists</div>
+                                    </>
+                                    : <NavLink to={AllRoutes.login}>
+                                        <p>Hello, Sign In</p>
+                                        <div className={s.actionTitle}>Account & Lists</div>
+                                    </NavLink>}
+
 
                                 {visible && <Popup mt="10px">
-                                    <NavLink to={AllRoutes.auth}>
-                                        <button className={s.authBtn}>Sign In</button>
-                                    </NavLink>
-                                    <div className={s.hint}>New customer? <span>Start here.</span></div>
+                                    {isAuth
+                                        ? <>
+                                            <div className={s.username}>{user?.email}</div>
+                                            <button className={s.authBtn} onClick={handleLogout}>
+                                                Logout
+                                            </button>
+                                        </>
+                                        : <>
+                                            <NavLink to={AllRoutes.login}>
+                                                <button className={s.authBtn}>Sign In</button>
+                                            </NavLink>
+                                            <div className={s.hint}>New customer?<span>Start here.</span></div>
+                                        </>}
                                 </Popup>}
+
+
                             </li>
                             <li className={s.actionItem + " " + s.orders}>
-                                <NavLink to={AllRoutes.orders}>
-                                    <p>Returns</p>
-                                    <div className={s.actionTitle}>& Orders</div>
-                                </NavLink>
+                                {isAuth
+                                    ? <NavLink to={AllRoutes.orders}>
+                                        <p>Returns</p>
+                                        <div className={s.actionTitle}>& Orders</div>
+                                    </NavLink>
+                                    : <NavLink to={AllRoutes.login}>
+                                        <p>Returns</p>
+                                        <div className={s.actionTitle}>& Orders</div>
+                                    </NavLink>}
                             </li>
                             <li className={s.user}>
-                                <NavLink to={AllRoutes.auth}>
-                                    <span>m1hbbn@yandex.ru</span>
-                                    <UserIcon color={`white`} size={24} />
-                                </NavLink>
+                                {isAuth
+                                    ? <>
+                                        <span>{user?.email}</span>
+                                        <UserIcon color={`white`} size={24} />
+                                    </>
+                                    : <NavLink to={AllRoutes.login}>
+                                        <span>Sign in</span>
+                                        <UserIcon color={`white`} size={24} />
+                                    </NavLink>}
                             </li>
                             <li className={s.actionItem}>
                                 <NavLink to={AllRoutes.cart}>
@@ -108,7 +153,10 @@ const Header = () => {
 
             </header>
 
-            {sidebar && <Sidebar handleClose={handleClose} />}
+            {sidebar && <Sidebar
+                handleClose={handleClose}
+                isAuth={isAuth}
+                handleLogout={handleLogout} />}
         </>
     );
 };

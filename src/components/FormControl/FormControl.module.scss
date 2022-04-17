@@ -1,0 +1,30 @@
+@import "../../variables.scss";
+.control {
+    margin-bottom: 20px;
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .input {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        width: 100%;
+        padding: 3px 7px;
+        height: 30px;
+        &:focus {
+            box-shadow: 0 0 5px $darkenOrange;
+            border: 1px solid $darkenOrange;
+        }
+    }
+    .error {
+        margin-top: 7px;
+        color: red;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+    .inputError {
+        border: 1px solid red;
+    }
+}

@@ -15,8 +15,9 @@ export enum AllRoutes {
     product = "/product",
     products = "/products",
     cart = "/cart",
-    auth = "/auth",
-    success = "/success"
+    registr = "/registr",
+    success = "/success",
+    login = "/login"
 }
 
 
@@ -27,7 +28,8 @@ const AppRoutes = () => {
             <Route path={AllRoutes.orders} element={<Orders />} />
             <Route path={AllRoutes.products} element={<Products />} />
             <Route path={AllRoutes.product + "/:id"} element={<ProductPage />} />
-            <Route path={AllRoutes.auth} element={<Signin />} />
+            <Route path={AllRoutes.registr} element={<Signin />} />
+            <Route path={AllRoutes.login} element={<Signin />} />
             <Route path={AllRoutes.cart} element={<Cart />} />
             <Route path={AllRoutes.products + "/:category"} element={<Products />} />
             <Route path={AllRoutes.success} element={<Success />} />

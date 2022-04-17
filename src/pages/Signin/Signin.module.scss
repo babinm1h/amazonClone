@@ -1,0 +1,67 @@
+@import "../../variables.scss";
+.container {
+    display: flex;
+    padding: 20px 20px 0 20px;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    .logo {
+        width: 110px;
+        height: 100%;
+    }
+    .block {
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 18px;
+        width: 350px;
+        margin-top: 5px;
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .form {
+            .btn {
+                width: 100%;
+                background-color: #f0c14b;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 14px;
+                border-radius: 4px;
+                border: 1px solid $darkenOrange;
+                margin: 10px 0 20px 0;
+                transition: all 0.15s ease;
+                &:hover {
+                    background-color: darken(#f0c14b, 7%);
+                }
+                &:active {
+                    box-shadow: 0 0 5px $darkenOrange;
+                }
+                &:disabled {
+                    background-color: #ccc;
+                    pointer-events: none;
+                }
+            }
+            .note {
+                font-size: 13px;
+                a {
+                    color: $blueLink;
+                    margin-left: 5px;
+                }
+            }
+            .error {
+                color: red;
+            }
+        }
+    }
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 35px 0;
+        margin-top: auto;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+}
