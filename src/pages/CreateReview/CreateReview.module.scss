@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+.container {
+    padding: 50px;
+    .breadcrumbs {
+        color: #999;
+        margin-bottom: 20px;
+        span {
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .rate {
+        text-align: center;
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+        }
+    }
+    .form {
+        margin-top: 10px;
+        .btn {
+            background-color: $orange;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+            padding: 0 25px;
+            border-radius: 9999px;
+            &:hover {
+                background-color: darken($orange, 10%);
+            }
+            &:active {
+                background-color: darken($orange, 20%);
+            }
+            &:disabled {
+                pointer-events: none;
+                background-color: lighten($orange, 10%);
+            }
+        }
+        .textarea {
+            padding: 5px;
+            resize: none;
+            border: 1px solid #ccc;
+            width: 100%;
+            margin-bottom: 15px;
+            height: 100px;
+        }
+    }
+}

@@ -1,9 +1,10 @@
 export interface IReview {
     _id: string
-    userId: string
+    user: string
     rate: number
     item: string
     text: string
+    createdAt: string
 }
 
 export interface IUser {

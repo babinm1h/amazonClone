@@ -52,44 +52,11 @@
                     font-size: 18px;
                 }
             }
-            .productRating {
-                margin-bottom: 15px;
-                display: flex;
-                align-items: center;
-                .star {
-                    font-size: 20px;
-                    color: $darkenOrange;
-                    cursor: pointer;
-                }
-                .rateCount {
-                    margin-left: 10px;
-                    color: $blueLink;
-                    cursor: pointer;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-                .stars {
-                    border: 2px solid transparent;
-                    border-radius: 7px;
-                    position: relative;
-                    &:hover {
-                        border: 2px solid $blueLink;
-                    }
-                }
-                .title {
-                    color: #999;
-                }
-                .starsList {
-                    li {
-                        margin-top: 10px;
-                        display: flex;
-                        align-items: center;
-                        span {
-                            color: $blueLink;
-                            margin-right: 5px;
-                        }
-                    }
+            .rateCount {
+                color: $blueLink;
+                cursor: pointer;
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }

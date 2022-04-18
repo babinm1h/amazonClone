@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
 import Cart from '../../pages/Cart/Cart';
+import CreateReview from '../../pages/CreateReview/CreateReview';
 import Home from '../../pages/Home/Home';
 import Orders from '../../pages/Orders/Orders';
 import ProductPage from '../../pages/ProductPage/ProductPage';
@@ -17,7 +18,8 @@ export enum AllRoutes {
     cart = "/cart",
     registr = "/registr",
     success = "/success",
-    login = "/login"
+    login = "/login",
+    review = '/review'
 }
 
 
@@ -33,6 +35,7 @@ const AppRoutes = () => {
             <Route path={AllRoutes.cart} element={<Cart />} />
             <Route path={AllRoutes.products + "/:category"} element={<Products />} />
             <Route path={AllRoutes.success} element={<Success />} />
+            <Route path={AllRoutes.review + "/:id"} element={<CreateReview />} />
         </Routes>
     );
 };

@@ -6,39 +6,38 @@
         font-size: 18px;
         margin-bottom: 10px;
     }
-    .rate {
-        p {
-            margin-bottom: 10px;
+    .writeBtn {
+        border: 1px solid #ccc;
+        background-color: #fff;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 99999px;
+        padding: 0 25px;
+        transition: all 0.15s ease;
+        &:hover {
+            background-color: #ebebeb;
         }
-        .star {
-            font-size: 22px;
-            cursor: pointer;
+        &:active {
+            border: 1px solid $blueLink;
+        }
+        a {
+            color: black;
         }
     }
-    .form {
-        margin-top: 10px;
-        .btn {
-            background-color: $orange;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.15s ease;
-            padding: 0 25px;
-            border-radius: 9999px;
-            &:hover {
-                background-color: darken($orange, 10%);
+    .list {
+        display: flex;
+        flex-direction: column;
+        .item {
+            margin-top: 30px;
+            .star {
+                color: $darkenOrange;
             }
-            &:active {
-                background-color: darken($orange, 20%);
+            .text {
+                margin-top: 10px;
+                line-height: 1.5;
             }
-        }
-        .textarea {
-            padding: 5px;
-            resize: none;
-            border: 1px solid #ccc;
-            width: 100%;
-            margin-bottom: 15px;
         }
     }
 }

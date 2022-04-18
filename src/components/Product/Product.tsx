@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IItem } from '../../types/models';
 import { AllRoutes } from '../AppRoutes/AppRoutes';
+import Rating from '../Rating/Rating';
 import s from "./Product.module.scss"
 
 interface IProductProps {
@@ -9,6 +10,11 @@ interface IProductProps {
 }
 
 const Product: FC<IProductProps> = ({ item }) => {
+
+    const allRates = item.reviews.map(i => i.rate)
+
+    const avgRate = allRates.reduce((prev, cur) => prev + cur, 0)
+
     return (
         <li className={s.item}>
             <NavLink to={AllRoutes.product + `/${item.category}/${item._id}`}>
@@ -24,9 +30,9 @@ const Product: FC<IProductProps> = ({ item }) => {
                 <div className={s.brand}>
                     Brand: <span>{item.brand.title}</span>
                 </div>
-                <div className={s.rating}>
-                    rating
-                </div>
+
+                <Rating avgRate={avgRate} allRates={allRates} />
+
                 <div className={s.price}>
                     $ {item.price}
                 </div>

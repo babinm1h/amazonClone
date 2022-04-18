@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ItemsService } from "../../API/ItemsService";
+import { ReviewsService } from "../../API/ReviewsService";
 import { ItemPageActionTypes } from "../../types/itemPage";
 
 
@@ -24,3 +25,15 @@ export const fetchSimilar = createAsyncThunk(ItemPageActionTypes.fetch_similar, 
         return thunk.rejectWithValue(err.response?.data.message)
     }
 })
+
+
+export const createReview = createAsyncThunk(ItemPageActionTypes.create_review,
+    async (payload: { id: string, text: string, rate: number }, thunk) => {
+        try {
+            const data = await ReviewsService.create(payload.id, payload.text, payload.rate)
+            return data
+
+        } catch (err: any) {
+            return thunk.rejectWithValue(err.response?.data.message)
+        }
+    })
