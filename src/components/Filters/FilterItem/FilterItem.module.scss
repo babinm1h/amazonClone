@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import "../../../variables.scss";
 
 .filter {
     padding: 7px 0;
@@ -39,6 +39,7 @@
             border-radius: 5px;
             line-height: 1.5;
             border: 1px solid none;
+            text-transform: capitalize;
         }
         .filterItemActive {
             color: $blueLink;

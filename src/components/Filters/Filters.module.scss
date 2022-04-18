@@ -1,0 +1,55 @@
+@import "../../variables.scss";
+.filters {
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+    max-width: 250px;
+    min-width: 200px;
+    width: 100%;
+    .filtersHeader {
+        height: 30px;
+        border-bottom: 1px solid #e7e7e7;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    .price {
+        margin-top: 10px;
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .form {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            input {
+                border: 1px solid #999;
+                padding: 5px;
+                height: 30px;
+                width: 100px;
+                border-radius: 4px;
+                &:focus {
+                    border: 1px solid $blueLink;
+                    box-shadow: 0 0 4px $blueLink;
+                }
+            }
+            .goBtn {
+                border: 1px solid #ccc;
+                height: 30px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 45px;
+                background-color: #ebebeb;
+                border-radius: 4px;
+                &:active {
+                    border: 1px solid $blueLink;
+                }
+                &:disabled {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

@@ -9,13 +9,12 @@ export const categories: ICateg[] = [
     { id: 1, title: "Computer and accessories", img: `https://www.notik.ru/content/img/1603093565_02-pc-vs-laptop-vs-aio.jpg`, cat: "computer" },
     { id: 2, title: "Gaming accessories", img: `https://4frag.ru/image/data/News/444/logitech-g-pro-x-keyboard-news-2.jpg`, cat: "gaming" },
     { id: 3, title: "Electronics", img: `https://catherineasquithgallery.com/uploads/posts/2021-02/1612486346_190-p-noutbuk-na-serom-fone-242.jpg`, cat: "electronics" },
-    { id: 4, title: "Fashion", img: `https://4frag.ru/image/data/News/444/logitech-g-pro-x-keyboard-news-2.jpg`, cat: "clothes" },
+    { id: 4, title: "Fashion", img: `https://i.pinimg.com/736x/8d/57/c7/8d57c7a8d37c8e7542ef57d093278ecf.jpg`, cat: "clothes" },
 ]
 
 
 export const sortOptions = [
-    { value: "default", title: "Default" },
-    { value: 'rating', title: "Rating" },
+    { value: "", title: "Default" },
     { value: "priceAsc", title: "Price Low to Hight" },
     { value: "priceDesc", title: "Price High to Low" },
 ]

@@ -26,8 +26,8 @@ const AppRoutes = () => {
         <Routes>
             <Route path={AllRoutes.home} element={<Home />} />
             <Route path={AllRoutes.orders} element={<Orders />} />
-            <Route path={AllRoutes.products} element={<Products />} />
-            <Route path={AllRoutes.product + "/:id"} element={<ProductPage />} />
+            <Route path={AllRoutes.products + '/:categ'} element={<Products />} />
+            <Route path={AllRoutes.product + "/:categ/:id"} element={<ProductPage />} />
             <Route path={AllRoutes.registr} element={<Signin />} />
             <Route path={AllRoutes.login} element={<Signin />} />
             <Route path={AllRoutes.cart} element={<Cart />} />

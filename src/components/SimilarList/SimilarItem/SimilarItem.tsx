@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import { IItem } from '../../../types/models';
 import { AllRoutes } from '../../AppRoutes/AppRoutes';
 import s from "./SimilarItem.module.scss"
 
-const SimilarItem = () => {
+interface ISimilarItemProps {
+    item: IItem
+}
+
+const SimilarItem: FC<ISimilarItemProps> = ({ item }) => {
     return (
         <li className={s.item}>
-            <NavLink to={AllRoutes.product + `/${1}`}>
-                <img src="https://m.media-amazon.com/images/I/711y8vC4+nL._AC_UY218_.jpg" alt="fa" />
-                <div className={s.itemTitle}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores inventore corporis dolores sapiente cupiditate! Ipsum officia, provident accusantium itaque repellat fugiat magnam praesentium maxime quia, est ipsa, assumenda voluptate incidunt!
-                </div>
+            <NavLink to={AllRoutes.product + `/${item.category}/${item._id}`}>
+                <img src={item.img} alt={item.title} />
             </NavLink>
-            <span className={s.itemPrice}>$ 99.77</span>
+            <div className={s.itemTitle}>
+                {item.title}
+            </div>
+            <span className={s.itemPrice}>$ {item.price}</span>
         </li>
     );
 };

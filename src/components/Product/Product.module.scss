@@ -1,14 +1,19 @@
 @import "../../variables.scss";
 .item {
     display: flex;
+    margin-bottom: 30px;
+    width: 100%;
     img {
         width: 220px;
         object-fit: contain;
         cursor: pointer;
+        height: 150px;
     }
     .itemInfo {
         margin-left: 20px;
+        flex: 1 1 auto;
         .itemTitle {
+            text-transform: capitalize;
             color: black;
             flex: 1 1 auto;
             font-size: 18px;
@@ -30,6 +35,13 @@
         }
         .rating {
             margin: 15px 0;
+        }
+        .brand {
+            text-transform: capitalize;
+            margin-top: 5px;
+            span {
+                color: $blueLink;
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 @import "../../../variables.scss";
 .item {
     img {
-        width: 150px;
+        width: 160px;
+        height: 160px;
+        object-fit: contain;
     }
     .itemTitle {
         color: $blueLink;
@@ -23,5 +25,6 @@
     .itemPrice {
         color: red;
         font-size: 18px;
+        letter-spacing: 0px;
     }
 }

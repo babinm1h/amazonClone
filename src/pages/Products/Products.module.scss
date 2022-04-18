@@ -14,7 +14,7 @@
     }
     .sort {
         border: 1px solid #ccc;
-        padding: 3px 5px;
+        padding: 5px;
         border-radius: 7px;
         font-size: 12px;
         cursor: pointer;
@@ -39,24 +39,19 @@
     padding-top: 20px;
     display: flex;
     width: calc(100vw - 28px + 4px);
-    .filters {
-        display: flex;
-        flex-direction: column;
-        padding: 0 8px;
-        max-width: 250px;
-        min-width: 200px;
-        width: 100%;
-        .filtersHeader {
-            height: 30px;
-            border-bottom: 1px solid #e7e7e7;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-    }
     .list {
         display: flex;
         flex-direction: column;
         margin-top: 20px;
-        padding: 0 8px;
+        padding: 0 10px;
+        flex: 100%;
+        .notFound {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+        }
+    }
+    .itemsLoader {
+        margin: 0 auto;
     }
 }
