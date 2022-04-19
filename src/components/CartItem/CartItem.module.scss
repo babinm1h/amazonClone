@@ -36,8 +36,13 @@
                 color: $blueLink;
                 margin-right: 20px;
                 cursor: pointer;
+                background-color: #fff;
                 &:hover {
                     text-decoration: underline;
+                }
+                &:disabled {
+                    pointer-events: none;
+                    color: lighten($blueLink, 15%);
                 }
             }
         }

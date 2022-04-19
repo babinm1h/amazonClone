@@ -9,7 +9,7 @@ export interface IItemPageState {
     isAdding: boolean
     similarItems: IItem[]
     isAddingReview: boolean
-    rating: number
+    reviewError: string
 }
 
 export enum ItemPageActionTypes {

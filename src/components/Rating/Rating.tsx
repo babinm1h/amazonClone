@@ -40,8 +40,6 @@ const Rating: FC<IRatingProps> = ({ avgRate, allRates }) => {
         rateCount[r] = (rateCount[r] || 0) + 1
     })
 
-    console.log(rateCount);
-
 
     return (
         <div className={s.productRating}>

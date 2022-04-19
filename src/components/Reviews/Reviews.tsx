@@ -22,18 +22,21 @@ const Reviews: FC<IReviewsProps> = ({ scrollRef, itemId }) => {
         <div ref={scrollRef} className={s.reviews}>
             <h3 className={s.label}>Customer reviews</h3>
 
-            <NavLink to={AllRoutes.review + `/${itemId}`}>
+            <NavLink to={isAuth ? AllRoutes.review + `/${itemId}` : AllRoutes.login}>
                 <button className={s.writeBtn}>
                     Write customer review
                 </button>
             </NavLink>
 
             <ul className={s.list}>
-                {reviews.map(r => <li className={s.item}>
-                    {[...Array(r.rate)].map(star => <FillStar className={s.star} />)}
+                {reviews.map(r => <li className={s.item} key={r._id}>
+                    {[...Array(r.rate)].map((star, index) => <FillStar className={s.star}
+                        key={index} />)}
+
                     <p className={s.text}>
                         {r.text}
                     </p>
+
                 </li>)}
             </ul>
         </div>

@@ -11,9 +11,6 @@ interface IProductProps {
 
 const Product: FC<IProductProps> = ({ item }) => {
 
-    const allRates = item.reviews.map(i => i.rate)
-
-    const avgRate = allRates.reduce((prev, cur) => prev + cur, 0)
 
     return (
         <li className={s.item}>
@@ -31,7 +28,7 @@ const Product: FC<IProductProps> = ({ item }) => {
                     Brand: <span>{item.brand.title}</span>
                 </div>
 
-                <Rating avgRate={avgRate} allRates={allRates} />
+                <Rating avgRate={item.rating} allRates={item.allRates} />
 
                 <div className={s.price}>
                     $ {item.price}

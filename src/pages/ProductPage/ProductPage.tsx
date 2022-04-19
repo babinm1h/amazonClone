@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FillStar } from '../../assets/icons';
+import { useEffect, useRef } from 'react';
 import DefaultLayout from '../../components/DefaultLayout/DefaultLayout';
 import SimilarList from '../../components/SimilarList/SimilarList';
 import s from "./ProductPage.module.scss"
@@ -11,6 +10,9 @@ import { fetchItem, fetchSimilar } from '../../store/thunks/itemPage';
 import { useParams } from 'react-router';
 import Loader from '../../components/Loader/Loader';
 import Rating from '../../components/Rating/Rating';
+import { NavLink } from 'react-router-dom';
+import { AllRoutes } from '../../components/AppRoutes/AppRoutes';
+import { addCartItem } from '../../store/thunks/cart';
 
 
 
@@ -26,10 +28,11 @@ const ProductPage = () => {
         }
     }
 
-    const { isLoading, item, reviews, similarItems, rating } = useAppSelector(state => state.itemPage)
+    const { isLoading, item, reviews, similarItems } = useAppSelector(state => state.itemPage)
+    const { isAuth } = useAppSelector(state => state.auth)
+    const { isAdding } = useAppSelector(state => state.cart)
     const dispatch = useDispatch()
 
-    const allRates = item?.reviews.map(i => i.rate)
 
     useEffect(() => {
         if (id && categ) {
@@ -41,6 +44,10 @@ const ProductPage = () => {
 
     if (isLoading) {
         return <div className="loader_centered"><Loader /></div>
+    }
+
+    const handleAddToCart = () => {
+        if (item) dispatch(addCartItem(item?._id))
     }
 
     return (
@@ -64,11 +71,11 @@ const ProductPage = () => {
                             {reviews.length} ratings
                         </span>
 
-                        <Rating avgRate={rating} allRates={allRates!} />
+                        <Rating avgRate={item!.rating} allRates={item!.allRates} />
 
 
                         <div className={s.productPrice}>
-                            Price: <span>$ 77.99</span>
+                            Price: <span>$ {item?.price}</span>
                         </div>
                     </div>
                 </div>
@@ -81,12 +88,20 @@ const ProductPage = () => {
                             <span>$ {item?.price}</span>
                         </div>
                         <p>Usually ships within 6 to 10 days.</p>
-                        <button className={s.btn + " " + s.addBtn}>
-                            Add to Cart
-                        </button>
-                        <button className={s.btn + " " + s.buyBtn}>
-                            Buy now
-                        </button>
+                        {isAuth ? <>
+                            <button className={s.btn + " " + s.addBtn}
+                                onClick={handleAddToCart}
+                                disabled={isAdding}>
+                                Add to Cart
+                            </button>
+                            <button className={s.btn + " " + s.buyBtn}>
+                                Buy now
+                            </button>
+                        </>
+                            : <NavLink to={AllRoutes.login}>
+                                <button className={s.btn + " " + s.addBtn}>Sign in to buy</button>
+                            </NavLink>
+                        }
                     </div>
                 </div>
             </div>

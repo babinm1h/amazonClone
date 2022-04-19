@@ -18,6 +18,8 @@ const Header = () => {
 
     const { user, isAuth } = useAppSelector(state => state.auth)
 
+    const { totalCount } = useAppSelector(state => state.cart)
+
     const handleShow = () => {
         setVisible(true)
     }
@@ -126,7 +128,7 @@ const Header = () => {
                                     <div className={s.cartBlock}>
                                         <div className={s.cartIcon}>
                                             <CartIcon size={35} />
-                                            <span className={s.cartCount}>78</span>
+                                            <span className={s.cartCount}>{totalCount}</span>
                                         </div>
                                         <div className={s.actionTitle}>Cart</div>
                                     </div>

@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import DefaultLayout from '../../components/DefaultLayout/DefaultLayout';
 import { useNavigate } from 'react-router';
+import { useAppSelector } from '../../hooks/redux';
 
 
 
@@ -20,6 +21,7 @@ interface IFormFields {
 const CreateReview = () => {
     const dispatch = useDispatch()
     const nav = useNavigate()
+    const { reviewError, isAddingReview } = useAppSelector(state => state.itemPage)
 
     const [rating, setRating] = useState<number | null>(null)
 
@@ -61,7 +63,10 @@ const CreateReview = () => {
                     <textarea placeholder="Your review..."
                         {...register("text", valid(1000, 1))}
                         className={s.textarea} />
-                    <button className={s.btn} disabled={!rating || !isValid}>
+
+                    {reviewError && <div className={s.error}>{reviewError}</div>}
+
+                    <button className={s.btn} disabled={!rating || !isValid || isAddingReview}>
                         Create Review
                     </button>
                 </form>

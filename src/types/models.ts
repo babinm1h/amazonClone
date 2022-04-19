@@ -23,6 +23,8 @@ export interface IItem {
     price: number
     reviews: IReview[]
     brand: IBrand
+    rating: number
+    allRates: number[]
 }
 
 export interface ICart {
@@ -34,7 +36,8 @@ export interface ICart {
 export interface ICartItem {
     _id: string
     item: IItem
-    cartId: string
+    quan: number
+    userId: string
 }
 
 export interface IOrder {

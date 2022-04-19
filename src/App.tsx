@@ -4,6 +4,7 @@ import AppRoutes from './components/AppRoutes/AppRoutes';
 import Loader from './components/Loader/Loader';
 import { useAppSelector } from './hooks/redux';
 import { checkAuth } from './store/thunks/auth';
+import { fetchCart } from './store/thunks/cart';
 
 const App = () => {
   const dispatch = useDispatch()
@@ -11,6 +12,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkAuth())
+    dispatch(fetchCart())
   }, [])
 
 

@@ -11,7 +11,7 @@ const initialState: IItemPageState = {
     isAddingReview: false,
     isAdding: false,
     isLoading: true,
-    rating: 0
+    reviewError: ""
 }
 
 
@@ -25,8 +25,6 @@ const itemPageSlice = createSlice({
             state.reviews = action.payload.reviews
             state.isLoading = false
 
-            const rates = action.payload.reviews.map(i => i.rate)
-            state.rating = Math.round(rates.reduce((prev, cur) => prev + cur, 0) / rates.length)
         },
         [fetchItem.pending.type]: (state, action) => {
             state.isLoading = true
@@ -40,9 +38,18 @@ const itemPageSlice = createSlice({
             state.similarItems = action.payload
         },
 
+
         [createReview.fulfilled.type]: (state, action: PayloadAction<IReview>) => {
+            state.isAddingReview = false
+            state.reviewError = ""
+        },
+        [createReview.pending.type]: (state, action: PayloadAction<IReview>) => {
             state.isAddingReview = true
-        }
+        },
+        [createReview.rejected.type]: (state, action: PayloadAction<string>) => {
+            state.isAddingReview = false
+            state.reviewError = action.payload
+        },
     }
 })
 
