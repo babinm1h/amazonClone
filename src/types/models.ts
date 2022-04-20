@@ -12,6 +12,7 @@ export interface IUser {
     email: string
     password: string
     reviews: IReview[]
+    orders: []
 }
 
 
@@ -41,7 +42,12 @@ export interface ICartItem {
 }
 
 export interface IOrder {
-
+    user: string
+    totalPrice: number
+    images: string[]
+    createdAt: string
+    totalCount: number
+    _id: string
 }
 
 

@@ -17,7 +17,9 @@ const CartItem: FC<ICartItemProps> = ({ item }) => {
     const dispatch = useDispatch()
 
     const handleDelete = () => {
-        dispatch(deleteCartItem(item._id))
+        if (window.confirm("Do you want to remove this item from cart?")) {
+            dispatch(deleteCartItem(item._id))
+        }
     }
 
     const handleIncr = () => {

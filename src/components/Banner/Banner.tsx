@@ -1,10 +1,13 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel"
-import { carouselItems } from '../../utils/data';
 import s from "./Banner.module.scss"
+import { carouselItems } from '../../utils/data';
+
 
 const Banner = () => {
+
+
     return (
         <div className={s.wrapper}>
             <Carousel

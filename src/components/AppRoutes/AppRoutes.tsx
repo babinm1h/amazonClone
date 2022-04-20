@@ -19,7 +19,7 @@ export enum AllRoutes {
     registr = "/registr",
     success = "/success",
     login = "/login",
-    review = '/review'
+    review = '/review',
 }
 
 

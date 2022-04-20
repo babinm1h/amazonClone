@@ -1,6 +1,7 @@
 import axios from "axios";
+import { SERVER_URL } from "../const";
 
-export const SERVER_URL = "http://localhost:7777/serv"
+
 
 const instance = axios.create({
     withCredentials: true,

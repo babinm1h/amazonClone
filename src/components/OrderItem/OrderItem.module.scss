@@ -10,13 +10,19 @@
             margin-right: 25px;
         }
         .total {
-            font-size: 12px;
+            font-size: 13px;
         }
         .count {
             margin-left: auto;
             flex-wrap: nowrap;
             color: $blueLink;
             font-size: 16px;
+            .remove {
+                color: red;
+                margin-top: 5px;
+                background-color: #fff;
+                font-size: 14px;
+            }
         }
         .label {
             font-weight: bold;
@@ -24,14 +30,16 @@
         }
     }
     .images {
-        margin-top: 15px;
+        margin-top: 20px;
         display: flex;
         align-items: center;
         overflow: hidden;
         overflow-x: auto;
         gap: 20px;
         img {
-            width: 80px;
+            width: 100px;
+            object-fit: contain;
+            height: 100px;
         }
     }
 }

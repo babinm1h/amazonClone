@@ -8,6 +8,10 @@
         object-fit: contain;
         cursor: pointer;
         height: 150px;
+        @media (max-width: 768px) {
+            width: 150px;
+            height: 150px;
+        }
     }
     .itemInfo {
         margin-left: 20px;
@@ -28,6 +32,9 @@
             -webkit-box-orient: vertical;
             &:hover {
                 color: $darkenOrange;
+            }
+            @media (max-width: 768px) {
+                font-size: 14px;
             }
         }
         .price {

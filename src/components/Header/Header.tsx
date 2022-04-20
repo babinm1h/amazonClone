@@ -95,7 +95,11 @@ const Header = () => {
                                             <NavLink to={AllRoutes.login}>
                                                 <button className={s.authBtn}>Sign In</button>
                                             </NavLink>
-                                            <div className={s.hint}>New customer?<span>Start here.</span></div>
+                                            <div className={s.hint}>New customer?
+                                                <NavLink to={AllRoutes.registr}>
+                                                    <span>Start here.</span>
+                                                </NavLink>
+                                            </div>
                                         </>}
                                 </Popup>}
 

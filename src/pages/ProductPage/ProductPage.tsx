@@ -50,6 +50,7 @@ const ProductPage = () => {
         if (item) dispatch(addCartItem(item?._id))
     }
 
+
     return (
         <DefaultLayout>
             <div className={s.content}>

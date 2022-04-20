@@ -11,7 +11,7 @@ const initialState: IAuthState = {
     reviews: [],
     isLoading: true,
     registrError: "",
-    loginError: ''
+    loginError: '',
 }
 
 
@@ -23,10 +23,10 @@ const authSlice = createSlice({
         [registration.fulfilled.type]: (state, action: PayloadAction<IUser>) => {
             state.user = action.payload
             state.isAuth = true
-            state.isLoading = false
             state.registrError = ""
             state.reviews = action.payload.reviews
             state.loginError = ""
+            state.isLoading = false
         },
         [registration.pending.type]: (state, action) => {
             state.isLoading = true
@@ -40,10 +40,10 @@ const authSlice = createSlice({
         [login.fulfilled.type]: (state, action: PayloadAction<IUser>) => {
             state.user = action.payload
             state.isAuth = true
-            state.isLoading = false
             state.loginError = ""
             state.registrError = ""
             state.reviews = action.payload.reviews
+            state.isLoading = false
         },
         [login.pending.type]: (state, action) => {
             state.isLoading = true
@@ -57,10 +57,10 @@ const authSlice = createSlice({
         [checkAuth.fulfilled.type]: (state, action: PayloadAction<IUser>) => {
             state.user = action.payload
             state.isAuth = true
-            state.isLoading = false
             state.loginError = ""
             state.registrError = ""
             state.reviews = action.payload.reviews
+            state.isLoading = false
         },
         [checkAuth.pending.type]: (state, action) => {
             state.isLoading = true

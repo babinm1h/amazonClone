@@ -65,12 +65,10 @@ const cartSlice = createSlice({
 
         [incrQuan.fulfilled.type]: (state, action: PayloadAction<ICartItem>) => {
             const item = state.items.find(i => i._id === action.payload._id)
-            if (item) {
-                item.quan += 1
-                state.totalCount += 1
-                state.totalPrice += action.payload.item.price
-                state.inProgress = false
-            }
+            item!.quan += 1
+            state.totalCount += 1
+            state.totalPrice += action.payload.item.price
+            state.inProgress = false
         },
         [incrQuan.pending.type]: (state, action) => {
             state.inProgress = true
@@ -82,12 +80,10 @@ const cartSlice = createSlice({
 
         [decrQuan.fulfilled.type]: (state, action: PayloadAction<ICartItem>) => {
             const item = state.items.find(i => i._id === action.payload._id)
-            if (item) {
-                item.quan -= 1
-                state.totalCount -= 1
-                state.totalPrice -= action.payload.item.price
-                state.inProgress = false
-            }
+            item!.quan -= 1
+            state.totalCount -= 1
+            state.totalPrice -= action.payload.item.price
+            state.inProgress = false
         },
         [decrQuan.pending.type]: (state, action) => {
             state.inProgress = true

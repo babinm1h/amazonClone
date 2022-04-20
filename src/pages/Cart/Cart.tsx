@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { OrdersService } from '../../API/OrdersService';
 import CartItem from '../../components/CartItem/CartItem';
 import DefaultLayout from '../../components/DefaultLayout/DefaultLayout';
 import EmptyCart from '../../components/EmptyCart/EmptyCart';
@@ -7,6 +8,11 @@ import Loader from '../../components/Loader/Loader';
 import { useAppSelector } from '../../hooks/redux';
 import { fetchCart } from '../../store/thunks/cart';
 import s from './Cart.module.scss'
+import { STRIPE_PUB } from '../../const';
+import { loadStripe } from '@stripe/stripe-js/pure';
+
+const stripePromise = loadStripe(STRIPE_PUB)
+
 
 const Cart = () => {
 
@@ -17,15 +23,26 @@ const Cart = () => {
         dispatch(fetchCart())
     }, [dispatch])
 
-    if (isLoading) {
-        return <div className="loader_centered"><Loader /></div>
+
+
+    const handleStripe = async () => {
+        const stripe = await stripePromise;
+
+        const id = await OrdersService.stripeCreate(items)
+
+        const res = await stripe?.redirectToCheckout({
+            sessionId: id
+        })
+
+        if (res?.error) console.log(res.error.message)
     }
 
     return (
         <DefaultLayout>
             <div className={s.container}>
                 <div className={s.content}>
-                    {totalCount === 0
+
+                    {isLoading ? <div className={s.loader}><Loader /></div> : !totalCount
                         ? <EmptyCart />
                         : <>
                             <div className={s.column1}>
@@ -38,6 +55,7 @@ const Cart = () => {
                                         </div>
                                     </div>
 
+
                                     <ul className={s.items}>
                                         {items.map(i => <CartItem key={i._id} item={i} />)}
                                     </ul>
@@ -48,9 +66,12 @@ const Cart = () => {
                             <div className={s.column2}>
                                 <div className={s.totalBlock}>
                                     <span className={s.total}>
-                                        Subtotal (1 item): <span>$ {totalPrice.toFixed(2)}</span>
+                                        Subtotal {totalCount} items:
+                                        <span> $ {totalPrice.toFixed(2)}</span>
                                     </span>
-                                    <button className={s.button}>Proceed to checkout</button>
+                                    <button className={s.button} onClick={handleStripe}>
+                                        Proceed to checkout
+                                    </button>
                                 </div>
                             </div>
                         </>}
