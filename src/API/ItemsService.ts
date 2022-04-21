@@ -8,7 +8,7 @@ export class ItemsService {
     static async fetchItems(
         category?: string,
         brand?: string,
-        max?: number,
+        max?: number | string,
         activeSort?: string,
         search?: string): Promise<IItem[]> {
 

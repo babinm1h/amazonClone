@@ -15,7 +15,8 @@ const Filters = () => {
     const dispatch = useDispatch()
     const { brandsLoading } = useAppSelector(state => state.items)
 
-    const { register, handleSubmit, formState: { isValid } } = useForm<IFormFields>({ mode: `onChange` })
+    const { register, handleSubmit, formState: { isValid } }
+        = useForm<IFormFields>({ mode: `onChange` })
 
     const onSubmit: SubmitHandler<IFormFields> = ({ max }) => {
         dispatch(setMaxPrice(max))
@@ -36,7 +37,7 @@ const Filters = () => {
 
                     <input {...register("max", { required: true })}
                         id="max" placeholder="$ Max Price" type="number"
-                        min={0} defaultValue={100000}
+                        min={0}
                         max={1000000} />
 
                     <button type="submit" className={s.goBtn}

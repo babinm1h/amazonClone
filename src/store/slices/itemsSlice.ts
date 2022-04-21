@@ -10,7 +10,7 @@ const initialState: IItemsState = {
     brands: [],
     brandsLoading: true,
     activeBrand: null,
-    maxPrice: 9999999,
+    maxPrice: 0,
     activeSort: null,
     search: null
 }
@@ -23,7 +23,7 @@ const itemsSlice = createSlice({
         setActiveBrand(state, action: PayloadAction<string | null>) {
             state.activeBrand = action.payload
         },
-        setMaxPrice(state, action: PayloadAction<number>) {
+        setMaxPrice(state, action: PayloadAction<number | string>) {
             state.maxPrice = Number(action.payload)
         },
         setActiveSort(state, action: PayloadAction<string | null>) {

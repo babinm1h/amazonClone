@@ -6,7 +6,7 @@ import { ItemsActionTypes } from "../../types/items";
 interface IFetchItemsPayload {
     category?: string,
     brand?: string,
-    max?: number,
+    max?: number | string,
     activeSort?: string
     search?: string
 }

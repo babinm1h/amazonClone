@@ -7,7 +7,7 @@ export interface IItemsState {
     brands: IBrand[]
     brandsLoading: boolean
     activeBrand: null | string
-    maxPrice: number
+    maxPrice: number | string
     activeSort: string | null
     search: string | null
 }

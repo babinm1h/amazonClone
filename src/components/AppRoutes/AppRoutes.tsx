@@ -36,7 +36,7 @@ const AppRoutes = () => {
             <Route path={AllRoutes.products + "/:category"} element={<Products />} />
             <Route path={AllRoutes.success} element={<Success />} />
             <Route path={AllRoutes.review + "/:id"} element={<CreateReview />} />
-            <Route path={AllRoutes.products + "/search/:search"} element={<Products />} />
+            <Route path={AllRoutes.products} element={<Products />} />
         </Routes>
     );
 };

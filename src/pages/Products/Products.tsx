@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 import DefaultLayout from '../../components/DefaultLayout/DefaultLayout';
 import Filters from '../../components/Filters/Filters';
 import Loader from '../../components/Loader/Loader';
@@ -15,26 +16,37 @@ import s from "./Products.module.scss"
 
 
 const Products = () => {
-    const { items, itemsLoading, activeBrand, maxPrice, activeSort, search } = useAppSelector(state => state.items)
+    const { items, itemsLoading, activeBrand, maxPrice, activeSort } = useAppSelector(state => state.items)
 
     const dispatch = useDispatch()
     const params = useParams() as { categ: string }
 
+    const [searchParams] = useSearchParams()
+    const searchQuery = searchParams.get("search")!
 
     useEffect(() => {
-        dispatch(fetchItems({
-            category: params.categ,
-            brand: activeBrand!,
-            max: maxPrice,
-            activeSort: activeSort!,
-            search: search!
-        }))
-    }, [activeBrand, dispatch, maxPrice, activeSort, search])
+        if (!maxPrice) {
+            dispatch(fetchItems({
+                category: params.categ,
+                brand: activeBrand!,
+                activeSort: activeSort!,
+                search: searchQuery
+            }))
+        } else {
+            dispatch(fetchItems({
+                category: params.categ,
+                brand: activeBrand!,
+                activeSort: activeSort!,
+                search: searchQuery,
+                max: maxPrice
+            }))
+        }
+    }, [activeBrand, dispatch, maxPrice, activeSort, searchQuery])
 
 
     useEffect(() => {
         dispatch(fetchBrands())
-        dispatch(setMaxPrice(999999))
+        dispatch(setMaxPrice(0))
         dispatch(setActiveSort(null))
         dispatch(setActiveBrand(null))
         dispatch(setSearch(null))
@@ -70,7 +82,9 @@ const Products = () => {
                     : <ul className={s.list}>
                         {items.length > 0
                             ? items.map(i => <Product item={i} key={i._id} />)
-                            : <h2 className={s.notFound}>Items not found : (</h2>}
+                            : <h2 className={s.notFound}>
+                                Items not found
+                            </h2>}
                     </ul>}
 
             </section>

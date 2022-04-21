@@ -1,10 +1,9 @@
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 import { SearchIcon } from '../../../assets/icons';
-import { setSearch } from '../../../store/slices/itemsSlice';
 import { AllRoutes } from '../../AppRoutes/AppRoutes';
 import s from "./SearchForm.module.scss"
 
@@ -15,19 +14,18 @@ interface IFormFields {
 const SearchForm = () => {
     const nav = useNavigate()
     const location = useLocation()
-    const dispatch = useDispatch()
 
-    const { register, handleSubmit, reset } = useForm<IFormFields>()
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const { register, handleSubmit } = useForm<IFormFields>()
 
 
     const onSubmit: SubmitHandler<IFormFields> = ({ search }) => {
         if (!search.length) return
-
-        dispatch(setSearch(search))
-        reset()
+        setSearchParams({ search: search })
 
         if (!location.pathname.includes("/products")) {
-            nav(AllRoutes.products + `/search/${search}`)
+            nav(AllRoutes.products + `?search=${search}`)
         }
     }
 
