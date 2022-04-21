@@ -6,9 +6,15 @@
     .content {
         padding: 18px;
         display: flex;
+        @media (max-width: 1024px) {
+            display: block;
+        }
         .column1 {
             flex: 75%;
             padding-right: 20px;
+            @media (max-width: 1024px) {
+                padding-right: 0;
+            }
             .cart {
                 background-color: #fff;
                 padding: 20px;
@@ -93,14 +99,23 @@
 
         .column2 {
             flex: 25%;
+            @media (max-width: 1024px) {
+                margin: 30px 0;
+            }
             .totalBlock {
                 background-color: #fff;
                 flex: 25%;
                 padding: 20px;
                 .total {
                     font-size: 18px;
+                    line-height: 1.5;
                     span {
                         font-weight: bold;
+                    }
+                    .totalPrice {
+                        @media (max-width: 1124px) {
+                            display: block;
+                        }
                     }
                 }
                 .button {

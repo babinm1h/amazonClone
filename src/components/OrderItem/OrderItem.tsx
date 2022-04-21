@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { IOrder } from '../../types/models';
 import s from "./OrderItem.module.scss"
-import { parseISO, format } from "date-fns"
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../hooks/redux';
 import { removeOrder } from '../../store/thunks/orders';
+import { formatDate } from '../../utils/formatDate';
 
 interface IOrderItemProps {
     item: IOrder
@@ -12,7 +12,7 @@ interface IOrderItemProps {
 
 const OrderItem: FC<IOrderItemProps> = ({ item }) => {
 
-    const date = format(parseISO(item.createdAt), "MM/dd/yyyy").toString()
+    const date = formatDate(item.createdAt)
 
     const dispatch = useDispatch()
 

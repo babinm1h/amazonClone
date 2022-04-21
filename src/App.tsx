@@ -9,14 +9,18 @@ import { fetchCart } from './store/thunks/cart';
 
 const App = () => {
   const dispatch = useDispatch()
-  const { isLoading } = useAppSelector(state => state.auth)
+  const { isLoading, isAuth } = useAppSelector(state => state.auth)
 
   const location = useLocation()
 
   useEffect(() => {
     dispatch(checkAuth())
-    if (location.pathname !== `/cart`) dispatch(fetchCart())
   }, [dispatch])
+
+  
+  useEffect(() => {
+    if (isAuth && location.pathname !== `/cart`) dispatch(fetchCart())
+  }, [isAuth])
 
 
   if (isLoading) {

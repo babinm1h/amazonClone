@@ -9,6 +9,9 @@ const DefaultLayout: FC = ({ children }) => {
             <main className={s.main}>
                 {children}
             </main>
+            <footer className={s.footer}>
+                <div>Babin Mihail 2022</div>
+            </footer>
         </>
     );
 };

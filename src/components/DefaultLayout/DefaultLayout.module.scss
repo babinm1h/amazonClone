@@ -1,5 +1,19 @@
+@import "../../variables.scss";
 .main {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.footer {
+    height: 55px;
+    background-color: $darkBlue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+        color: #fff;
+    }
 }

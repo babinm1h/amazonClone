@@ -16,7 +16,7 @@ const Banner = () => {
                 showStatus={false}
                 showThumbs={false}
                 showIndicators={false}
-                interval={5000}
+                interval={2000}
             >
 
                 {carouselItems.map(i => <div key={i}>

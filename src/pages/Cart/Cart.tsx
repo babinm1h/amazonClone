@@ -49,7 +49,6 @@ const Cart = () => {
                                 <div className={s.cart}>
                                     <div className={s.header}>
                                         <h1 className={s.title}>Shopping Cart</h1>
-                                        <span className={s.removeAll}>Remove All Items</span>
                                         <div className={s.subTitle}>
                                             <span>Price</span>
                                         </div>
@@ -67,7 +66,9 @@ const Cart = () => {
                                 <div className={s.totalBlock}>
                                     <span className={s.total}>
                                         Subtotal {totalCount} items:
-                                        <span> $ {totalPrice.toFixed(2)}</span>
+                                        <span className={s.totalPrice}>
+                                            $ {totalPrice.toFixed(2)}
+                                        </span>
                                     </span>
                                     <button className={s.button} onClick={handleStripe}>
                                         Proceed to checkout

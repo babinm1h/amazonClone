@@ -20,7 +20,16 @@ const initialState: ICartState = {
 const cartSlice = createSlice({
     name: "cart",
     initialState,
-    reducers: {},
+    reducers: {
+        cartLogout(state) {
+            state.items = []
+            state.inProgress = false
+            state.isAdding = false
+            state.isLoading = false
+            state.totalCount = 0
+            state.totalPrice = 0
+        }
+    },
     extraReducers: {
         [fetchCart.fulfilled.type]: (state, action: PayloadAction<ICartItem[]>) => {
             state.items = action.payload
@@ -95,4 +104,6 @@ const cartSlice = createSlice({
 })
 
 
-export default cartSlice.reducer
+export default cartSlice.reducer;
+
+export const { cartLogout } = cartSlice.actions

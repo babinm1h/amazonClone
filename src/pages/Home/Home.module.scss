@@ -1,13 +1,12 @@
 @import "../../variables.scss";
 .list {
-    position: absolute;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     z-index: 2;
-    top: 50%;
     padding: 0 20px;
     width: 100%;
+    transform: translateY(-20vh);
     @media (max-width: 1024px) {
         justify-content: flex-start;
         overflow: hidden;

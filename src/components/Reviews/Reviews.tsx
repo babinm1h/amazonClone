@@ -2,6 +2,7 @@ import { FC, RefObject } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FillStar } from '../../assets/icons';
 import { useAppSelector } from '../../hooks/redux';
+import { formatDate } from '../../utils/formatDate';
 import { AllRoutes } from '../AppRoutes/AppRoutes';
 import s from "./Reviews.module.scss"
 
@@ -18,6 +19,7 @@ const Reviews: FC<IReviewsProps> = ({ scrollRef, itemId }) => {
     const { isAuth } = useAppSelector(state => state.auth)
 
 
+
     return (
         <div ref={scrollRef} className={s.reviews}>
             <h3 className={s.label}>Customer reviews</h3>
@@ -28,10 +30,20 @@ const Reviews: FC<IReviewsProps> = ({ scrollRef, itemId }) => {
                 </button>
             </NavLink>
 
+
             <ul className={s.list}>
                 {reviews.map(r => <li className={s.item} key={r._id}>
-                    {[...Array(r.rate)].map((star, index) => <FillStar className={s.star}
-                        key={index} />)}
+
+                    <div className={s.itemTop}>
+                        <div className={s.stars}>
+                            {[...Array(r.rate)].map((star, index) => <FillStar className={s.star}
+                                key={index} />)}
+                        </div>
+
+                        <span className={s.date}>
+                            {formatDate(r.createdAt)}
+                        </span>
+                    </div>
 
                     <p className={s.text}>
                         {r.text}

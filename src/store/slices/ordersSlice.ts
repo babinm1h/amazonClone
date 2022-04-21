@@ -14,7 +14,13 @@ const initialState: IOrderState = {
 const ordersSlice = createSlice({
     name: "orders",
     initialState,
-    reducers: {},
+    reducers: {
+        ordersLogout(state) {
+            state.items = []
+            state.isLoading = false
+            state.isRemoving = false
+        }
+    },
     extraReducers: {
         [fetchOrders.fulfilled.type]: (state, action: PayloadAction<IOrder[]>) => {
             state.items = action.payload
@@ -43,3 +49,5 @@ const ordersSlice = createSlice({
 
 
 export default ordersSlice.reducer
+
+export const { ordersLogout } = ordersSlice.actions

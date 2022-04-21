@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import s from "./Header.module.scss"
 import logo from "../../assets/logo.png"
-import { BurgerIcon, CartIcon, MapIcon, MenuIcon, SearchIcon, UserIcon } from '../../assets/icons';
+import { CartIcon, MapIcon, MenuIcon, SearchIcon, UserIcon } from '../../assets/icons';
 import Popup from '../Popup/Popup';
 import { NavLink } from 'react-router-dom';
 import { AllRoutes } from '../AppRoutes/AppRoutes';
@@ -9,6 +9,8 @@ import Sidebar from './Sidebar/Sidebar';
 import { useAppSelector } from '../../hooks/redux';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/thunks/auth';
+import { cartLogout } from '../../store/slices/cartSlice';
+import { ordersLogout } from '../../store/slices/ordersSlice';
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -37,6 +39,8 @@ const Header = () => {
 
     const handleLogout = () => {
         dispatch(logout())
+        dispatch(cartLogout())
+        dispatch(ordersLogout())
         if (sidebar) {
             handleClose()
         }
@@ -145,12 +149,7 @@ const Header = () => {
 
                 <div className={s.bottom}>
                     <ul className={s.linkList}>
-                        <li className={s.linkItem}>
-                            <div className={s.burger}>
-                                <BurgerIcon color="white" size={17} className={s.burgerIcon} />
-                                All
-                            </div>
-                        </li>
+                        <li className={s.linkItem}> All</li>
                         <li className={s.linkItem}>Today deals</li>
                         <li className={s.linkItem}>Sell</li>
                         <li className={s.linkItem}>Something</li>
