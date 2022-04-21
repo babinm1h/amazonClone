@@ -6,7 +6,7 @@ import Filters from '../../components/Filters/Filters';
 import Loader from '../../components/Loader/Loader';
 import Product from '../../components/Product/Product';
 import { useAppSelector } from '../../hooks/redux';
-import { setActiveBrand, setActiveSort, setMaxPrice } from '../../store/slices/itemsSlice';
+import { setActiveBrand, setActiveSort, setMaxPrice, setSearch } from '../../store/slices/itemsSlice';
 import { fetchBrands, fetchItems } from '../../store/thunks/items';
 import { sortOptions } from '../../utils/data';
 import s from "./Products.module.scss"
@@ -15,7 +15,7 @@ import s from "./Products.module.scss"
 
 
 const Products = () => {
-    const { items, itemsLoading, activeBrand, maxPrice, activeSort } = useAppSelector(state => state.items)
+    const { items, itemsLoading, activeBrand, maxPrice, activeSort, search } = useAppSelector(state => state.items)
 
     const dispatch = useDispatch()
     const params = useParams() as { categ: string }
@@ -23,16 +23,21 @@ const Products = () => {
 
     useEffect(() => {
         dispatch(fetchItems({
-            category: params.categ, brand: activeBrand!, max: maxPrice, activeSort: activeSort!
+            category: params.categ,
+            brand: activeBrand!,
+            max: maxPrice,
+            activeSort: activeSort!,
+            search: search!
         }))
-    }, [activeBrand, dispatch, maxPrice, activeSort])
+    }, [activeBrand, dispatch, maxPrice, activeSort, search])
 
 
     useEffect(() => {
         dispatch(fetchBrands())
-        dispatch(setMaxPrice(100000))
+        dispatch(setMaxPrice(999999))
         dispatch(setActiveSort(null))
         dispatch(setActiveBrand(null))
+        dispatch(setSearch(null))
     }, [dispatch])
 
 

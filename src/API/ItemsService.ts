@@ -9,14 +9,16 @@ export class ItemsService {
         category?: string,
         brand?: string,
         max?: number,
-        activeSort?: string): Promise<IItem[]> {
+        activeSort?: string,
+        search?: string): Promise<IItem[]> {
 
         const { data } = await instance.get("/items", {
             params: {
                 category,
                 price: max,
                 brand,
-                activeSort
+                activeSort,
+                search
             }
         })
 

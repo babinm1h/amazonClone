@@ -9,6 +9,7 @@ export interface IItemsState {
     activeBrand: null | string
     maxPrice: number
     activeSort: string | null
+    search: string | null
 }
 
 export enum ItemsActionTypes {

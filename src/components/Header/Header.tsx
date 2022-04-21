@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import s from "./Header.module.scss"
 import logo from "../../assets/logo.png"
-import { CartIcon, MapIcon, MenuIcon, SearchIcon, UserIcon } from '../../assets/icons';
+import { CartIcon, MapIcon, MenuIcon, UserIcon } from '../../assets/icons';
 import Popup from '../Popup/Popup';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import { AllRoutes } from '../AppRoutes/AppRoutes';
 import Sidebar from './Sidebar/Sidebar';
 import { useAppSelector } from '../../hooks/redux';
@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../store/thunks/auth';
 import { cartLogout } from '../../store/slices/cartSlice';
 import { ordersLogout } from '../../store/slices/ordersSlice';
+import SearchForm from './SearchForm/SearchForm';
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -47,6 +48,7 @@ const Header = () => {
     }
 
 
+
     return (
         <>
             <header className={s.header}>
@@ -62,14 +64,13 @@ const Header = () => {
                             <MapIcon /> <p>Russian Federation</p>
                         </div>
                     </div>
+
+
                     <div className={s.center}>
-                        <form className={s.inputContainer}>
-                            <input type="text" className={s.input} />
-                            <button className={s.btn} type="submit">
-                                <SearchIcon size={20} />
-                            </button>
-                        </form>
+                        <SearchForm />
                     </div>
+
+
                     <div className={s.right}>
                         <ul className={s.actionList}>
                             <li className={s.actionItem + " " + s.account}

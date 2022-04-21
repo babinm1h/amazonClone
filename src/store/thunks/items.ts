@@ -8,13 +8,14 @@ interface IFetchItemsPayload {
     brand?: string,
     max?: number,
     activeSort?: string
+    search?: string
 }
 
 
 export const fetchItems = createAsyncThunk(ItemsActionTypes.fetch_items,
     async (payload: IFetchItemsPayload, thunk) => {
         try {
-            const data = await ItemsService.fetchItems(payload.category, payload.brand, payload.max, payload.activeSort)
+            const data = await ItemsService.fetchItems(payload.category, payload.brand, payload.max, payload.activeSort, payload.search)
             return data
 
         } catch (err) {

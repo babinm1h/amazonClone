@@ -11,7 +11,8 @@ const initialState: IItemsState = {
     brandsLoading: true,
     activeBrand: null,
     maxPrice: 9999999,
-    activeSort: null
+    activeSort: null,
+    search: null
 }
 
 
@@ -19,7 +20,7 @@ const itemsSlice = createSlice({
     name: "items",
     initialState,
     reducers: {
-        setActiveBrand(state, action:PayloadAction<string|null>) {
+        setActiveBrand(state, action: PayloadAction<string | null>) {
             state.activeBrand = action.payload
         },
         setMaxPrice(state, action: PayloadAction<number>) {
@@ -27,6 +28,9 @@ const itemsSlice = createSlice({
         },
         setActiveSort(state, action: PayloadAction<string | null>) {
             state.activeSort = action.payload
+        },
+        setSearch(state, action: PayloadAction<string | null>) {
+            state.search = action.payload
         }
     },
     extraReducers: {
@@ -60,4 +64,4 @@ const itemsSlice = createSlice({
 
 
 export default itemsSlice.reducer
-export const { setActiveBrand, setMaxPrice, setActiveSort } = itemsSlice.actions
+export const { setActiveBrand, setMaxPrice, setActiveSort, setSearch } = itemsSlice.actions

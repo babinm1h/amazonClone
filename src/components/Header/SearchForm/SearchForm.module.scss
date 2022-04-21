@@ -1,0 +1,22 @@
+@import "../../../variables.scss";
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1 1 auto;
+    .input {
+        padding: 5px;
+        height: 40px;
+        width: 100%;
+        border-radius: 5px 0 0 5px;
+        &:focus {
+            box-shadow: 0 0 3px $orange;
+        }
+    }
+    .btn {
+        background-color: $orange;
+        height: 40px;
+        width: 40px;
+        border-radius: 0px 5px 5px 0px;
+    }
+}
