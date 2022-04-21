@@ -1,4 +1,4 @@
-
+export const DEPLOY_URL = "https://amaz0n-clone.herokuapp.com/serv/"
 
 export const SERVER_URL = "http://localhost:7777/serv"
 
