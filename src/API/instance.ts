@@ -5,7 +5,7 @@ import { DEPLOY_URL, SERVER_URL } from "../const";
 
 const instance = axios.create({
     withCredentials: true,
-    baseURL: DEPLOY_URL
+    baseURL: SERVER_URL
 })
 
 

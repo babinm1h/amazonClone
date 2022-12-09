@@ -8,7 +8,7 @@ export const carouselItems = [
 export const categories: ICateg[] = [
     { id: 1, title: "Computer and accessories", img: `https://www.notik.ru/content/img/1603093565_02-pc-vs-laptop-vs-aio.jpg`, cat: "computer" },
     { id: 2, title: "Gaming accessories", img: `https://4frag.ru/image/data/News/444/logitech-g-pro-x-keyboard-news-2.jpg`, cat: "gaming" },
-    { id: 3, title: "Electronics", img: `https://catherineasquithgallery.com/uploads/posts/2021-02/1612486346_190-p-noutbuk-na-serom-fone-242.jpg`, cat: "electronics" },
+    { id: 3, title: "Electronics", img: `https://259506.selcdn.ru/sites-static/site491636/3b16848d-a931-4588-8f7e-3d1e158de37a/3b16848d-a931-4588-8f7e-3d1e158de37a-1134633.jpeg`, cat: "electronics" },
     { id: 4, title: "Fashion", img: `https://i.pinimg.com/736x/8d/57/c7/8d57c7a8d37c8e7542ef57d093278ecf.jpg`, cat: "clothes" },
 ]
 
